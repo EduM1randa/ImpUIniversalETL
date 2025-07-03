@@ -1,0 +1,21 @@
+# Ignora el entorno virtual
+venv/
+.env/
+ENV/
+env/
+
+# Archivos de Python compilados
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de configuración de VS Code (opcional)
+.vscode/
+
+# Archivos de logs y temporales
+*.log
+*.tmp
+
+# Archivos de Jupyter Notebook checkpoints (si usas notebooks)
+.ipynb_checkpoints/
