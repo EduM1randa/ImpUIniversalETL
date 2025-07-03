@@ -15,12 +15,10 @@ from etl.extract import (
     extract_fact_ventas,
     extract_fact_compras,
     extract_dim_pedido_compra,
-    # ...agrega aquí otras funciones si las creas
 )
 
 
 CUSTOM_EXTRACTION_FUNCTIONS = {
-    # Dimensiones
     'Sales.Customers': extract_dim_cliente,
     'Application.Countries': extract_dim_pais,
     'Application.StateProvinces': extract_dim_provincias,
