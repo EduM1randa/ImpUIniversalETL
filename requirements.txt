@@ -5,3 +5,4 @@ pyodbc==5.1.0
 uvicorn==0.35.0
 fastapi==0.115.14
 APScheduler==3.11.0
+requests==2.31.0
