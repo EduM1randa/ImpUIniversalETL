@@ -298,32 +298,20 @@ def extract_fact_ventas(table_name: str, engine):
     )
 
     SELECT
-    -- Método de pago
     tp.id_metodo_pago,
     tp.id_tipo_transaccion,
 
-    -- Producto
     il.StockItemID            AS id_producto,
 
-    -- Cliente
     COALESCE(tp.id_cliente, inv.CustomerID) AS id_cliente,
 
-    -- Origen
     inv.InvoiceID             AS id_factura,
     inv.OrderID               AS id_pedido,
+    df_ped.id_fecha           AS fecha_pedido,
+    df_fac.id_fecha           AS fecha_factura,
 
-    -- Fechas y sus claves en DimFecha
-    ord.OrderDate             AS fecha_de_pedido,
-    df_ped.id_fecha           AS id_fecha_pedido,
-
-    inv.InvoiceDate           AS fecha_de_factura,
-    df_fac.id_fecha           AS id_fecha_factura,
-
-    tp.fecha_de_transaccion,
-    df_trn.id_fecha           AS id_fecha_transaccion,
-
-    tp.fecha_de_entrega,
-    df_fin.id_fecha           AS id_fecha_entrega,
+    df_trn.id_fecha           AS fecha_transaccion,
+    df_fin.id_fecha           AS fecha_entrega,
 
     -- Cantidades y precios
     il.Quantity               AS cantidad,
