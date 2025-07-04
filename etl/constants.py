@@ -17,6 +17,13 @@ from etl.extract import (
     extract_dim_pedido_compra,
 )
 
+from etl.transform import (
+    transform_dim_pedido_venta, 
+    transform_fact_movimiento_inventario, 
+    transform_fact_ventas,
+    transform_fact_compras,
+)
+
 TABLES_TO_MIGRATE = [
     'Sales.Customers',
     'Application.Countries',
@@ -53,6 +60,13 @@ CUSTOM_EXTRACTION_FUNCTIONS = {
     'Sales.Invoices': extract_fact_ventas, 
     'Purchasing.PurchaseOrderLines': extract_fact_compras, 
     'Purchasing.PurchaseOrders': extract_dim_pedido_compra,
+}
+
+CUSTOM_TRANSFORMATION_FUNCTIONS = {
+    'Warehouse.StockItemTransactions': transform_fact_movimiento_inventario,
+    'Sales.Orders': transform_dim_pedido_venta,
+    'Sales.Invoices': transform_fact_ventas,
+    'Purchasing.PurchaseOrderLines': transform_fact_compras,
 }
 
 TABLE_NAME_MAPPING = {

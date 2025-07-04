@@ -25,7 +25,7 @@ def extract_dim_provincias(table_name: str, engine):
       Provinces.StateProvinceID AS id_provincia,
       Provinces.StateProvinceCode AS codigo_provincia,
       Provinces.StateProvinceName AS nombre_provincia,
-      Provinces.CountryID AS id_pais_fk,
+      Provinces.CountryID AS id_pais,
       Provinces.SalesTerritory AS territorio_ventas,
       Provinces.LatestRecordedPopulation AS ultima_poblacion_registrada
     FROM Application.StateProvinces AS Provinces
@@ -40,7 +40,7 @@ def extract_dim_ciudades(table_name: str, engine):
     SELECT
       Cities.CityID AS id_ciudad,
       Cities.CityName AS nombre_ciudad,
-      Cities.StateProvinceID AS id_provincia_fk,
+      Cities.StateProvinceID AS id_provincia,
       Cities.LatestRecordedPopulation AS ultima_poblacion_registrada
     FROM Application.Cities AS Cities
     """
@@ -216,10 +216,10 @@ def extract_dim_pedido_compra(table_name: str, engine):
     query = """
     SELECT
       PurchaseOrderID AS id_pedido_compra,
-      SupplierID AS id_proveedor_fk,
+      SupplierID AS id_proveedor,
       df_ped.id_fecha AS fecha_pedido,
-      DeliveryMethodID AS id_metodo_entrega_fk,
-      ContactPersonID AS id_persona_contacto_fk,
+      DeliveryMethodID AS id_metodo_entrega,
+      ContactPersonID AS id_persona_contacto,
       df_ent.id_fecha AS fecha_entrega_esperada,
       IsOrderFinalized AS esta_finalizado,
       Comments AS comentarios,
